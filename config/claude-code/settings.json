@@ -1,0 +1,14 @@
+{
+  "project": "Maya",
+  "description": "AI-powered bar management -OpenClaw agent with Hermes orchestration",
+  "instructions_file": "../../CLAUDE.md",
+  "environment": {
+    "platform": "macos",
+    "target": "mac-mini"
+  },
+  "permissions": {
+    "allow_edit": ["skills/**", "config/**", "integrations/**"],
+    "protect": ["AGENTS.md", "DREAMS.md", "Maya-Soul.md"],
+    "never_delete": true
+  }
+}

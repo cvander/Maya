@@ -1,0 +1,71 @@
+# Hermes Orchestration Configuration -Maya
+# Copy to config.yaml and fill in your values
+
+orchestrator:
+  name: maya-hermes
+  mode: local
+  target: mac-mini
+
+agents:
+  maya:
+    config: ../openclaw/config.yaml
+    role: primary
+    always_on: true
+
+routing:
+  # How tasks get routed between agents and services
+  vendor_communication:
+    agent: maya
+    channels: []        # add integrations as tested
+    fallback: log-and-notify
+
+  inventory:
+    agent: maya
+    storage: local      # swap for a remote store when ready
+    alerts:
+      low_stock: true
+      reorder_point: true
+
+  scheduling:
+    agent: maya
+    storage: local
+    notifications: []
+
+  close_out:
+    agent: maya
+    storage: local
+    nightly: true
+
+  music_booking:
+    agent: maya
+    channels: []
+    calendar: true
+
+services:
+  # Add service configs here as integrations are tested
+  # example:
+  #   url: ${SERVICE_URL}
+  #   key: ${SERVICE_KEY}
+
+schedules:
+  # Cron-style schedules for recurring tasks
+  daily_inventory_check:
+    cron: "0 10 * * *"
+    skill: inventory-check
+
+  weekly_vendor_orders:
+    cron: "0 9 * * 1"
+    skill: vendor-order-review
+
+  nightly_close_out:
+    cron: "0 2 * * *"
+    skill: close-out
+
+  monthly_compliance_review:
+    cron: "0 10 1 * *"
+    skill: compliance-check
+
+logging:
+  level: info
+  output: logs/
+  retain_days: 30

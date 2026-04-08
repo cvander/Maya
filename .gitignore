@@ -1,0 +1,26 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Config with secrets (use .example versions)
+config/openclaw/config.yaml
+config/hermes/config.yaml
+
+# Claude Code
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Dependencies
+node_modules/
+
+# Runtime
+tmp/
+.cache/
