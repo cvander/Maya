@@ -1,0 +1,48 @@
+name: Feature Request / Skill Idea
+description: Suggest a new feature or skill for Maya
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before suggesting, check [AGENTS.md](https://github.com/cvander/Maya/blob/main/AGENTS.md) for hard stops.
+        No franchising, QR menus, loyalty programs, or social media strategy - those are non-negotiable.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: What pain point or inefficiency are you addressing?
+      placeholder: "Currently the bar owner has to manually..."
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Which domain does this touch?
+      options:
+        - Inventory
+        - Menu / Drinks
+        - Vendors
+        - Scheduling
+        - Close-out / Finance
+        - Music
+        - Compliance
+        - System / Housekeeping
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What are you proposing?
+      description: Describe the feature or skill. Keep it practical.
+      placeholder: "A skill that..."
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: References, similar tools, or anything else relevant
+    validations:
+      required: false

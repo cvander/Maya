@@ -1,0 +1,44 @@
+name: Bug Report
+description: Something isn't working as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Keep it short and specific.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see vs. what you expected?
+      placeholder: "Expected X, got Y"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How can we see this bug?
+      placeholder: |
+        1. Run `maya inventory-check`
+        2. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Mac Mini (production)
+        - macOS (local dev)
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Logs, screenshots, config details (no secrets)
+      placeholder: Any other relevant information
+    validations:
+      required: false
