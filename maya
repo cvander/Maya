@@ -1,0 +1,97 @@
+#!/bin/bash
+# maya — CLI entry point for Maya bar management skills
+# Usage: maya <skill> [args...]
+#
+# Skills live in the skills/ directory as executable scripts.
+# Each skill is a standalone bash script named <skill>.sh.
+
+set -euo pipefail
+
+MAYA_ROOT="$(cd "$(dirname "$0")" && pwd)"
+SKILLS_DIR="$MAYA_ROOT/skills"
+
+usage() {
+  cat <<EOF
+Usage: maya <skill> [args...]
+
+Commands:
+  maya <skill> [args...]   Run a skill
+  maya --list              List available skills
+  maya --help              Show this help
+
+Skills directory: $SKILLS_DIR
+EOF
+}
+
+list_skills() {
+  if [ ! -d "$SKILLS_DIR" ]; then
+    echo "No skills directory found at $SKILLS_DIR"
+    exit 1
+  fi
+
+  local found=0
+  for f in "$SKILLS_DIR"/*.sh; do
+    [ -f "$f" ] || continue
+    found=1
+    local name
+    name="$(basename "$f" .sh)"
+    # Extract description from the skill's header comment
+    local desc
+    desc="$(grep -m1 '^# description:' "$f" 2>/dev/null | sed 's/^# description: *//' || echo "")"
+    if [ -n "$desc" ]; then
+      printf "  %-24s %s\n" "$name" "$desc"
+    else
+      printf "  %s\n" "$name"
+    fi
+  done
+
+  if [ "$found" -eq 0 ]; then
+    echo "No skills found in $SKILLS_DIR"
+    echo "Add skills as executable .sh files in that directory."
+  fi
+}
+
+# No arguments
+if [ $# -eq 0 ]; then
+  usage
+  exit 0
+fi
+
+case "$1" in
+  --help|-h)
+    usage
+    exit 0
+    ;;
+  --list|-l)
+    echo "Available skills:"
+    echo ""
+    list_skills
+    exit 0
+    ;;
+  --*)
+    echo "Unknown option: $1"
+    usage
+    exit 1
+    ;;
+esac
+
+# Run a skill
+SKILL_NAME="$1"
+shift
+SKILL_PATH="$SKILLS_DIR/${SKILL_NAME}.sh"
+
+if [ ! -f "$SKILL_PATH" ]; then
+  echo "Unknown skill: $SKILL_NAME"
+  echo ""
+  echo "Available skills:"
+  echo ""
+  list_skills
+  exit 1
+fi
+
+if [ ! -x "$SKILL_PATH" ]; then
+  echo "Skill '$SKILL_NAME' is not executable. Run: chmod +x $SKILL_PATH"
+  exit 1
+fi
+
+exec "$SKILL_PATH" "$@"
