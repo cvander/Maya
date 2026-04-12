@@ -1,0 +1,12 @@
+[skill]
+name = "<skill-name>"
+version = "0.1.0"
+description = "<One-line description.>"
+safety = "read_only"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = []
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

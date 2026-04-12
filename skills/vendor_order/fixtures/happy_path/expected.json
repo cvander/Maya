@@ -1,0 +1,19 @@
+{
+  "skill": "vendor-order",
+  "status": "warn",
+  "summary": "Order draft for Pinecrest Brewing Dist: 2 item(s).",
+  "data": {
+    "vendor": "Pinecrest Brewing Dist",
+    "order_text": "ORDER FOR: Pinecrest Brewing Dist\n\n1. Slow Tide Pilsner - Qty: 3\n2. Amber Trail - Qty: 3\n\nTotal items: 2",
+    "items_count": 2
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "code": "ORDER_DRAFT",
+      "subject": "Pinecrest Brewing Dist",
+      "message": "Draft order for Pinecrest Brewing Dist with 2 item(s)."
+    }
+  ],
+  "metrics": {}
+}

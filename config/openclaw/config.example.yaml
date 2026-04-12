@@ -4,7 +4,7 @@
 agent:
   name: Maya
   role: bar-manager
-  soul: ../../SOUL.md
+  soul: ../../Maya-Soul.md
   agents: ../../AGENTS.md
   dreams: ../../DREAMS.md
 
@@ -23,10 +23,13 @@ capabilities:
   - compliance-tracking
 
 hard_stops:
+  - no-payment-processors
+  - no-branding
   - no-franchising
   - no-qr-menus
   - no-loyalty-programs
   - no-social-media-strategy
+  - cash-only-non-negotiable
 
 integrations:
 

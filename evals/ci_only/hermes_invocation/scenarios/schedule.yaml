@@ -1,0 +1,8 @@
+name: schedule-view-routing
+input: "Show next week's schedule"
+expected_skill: schedule-view
+expected_args: ["--format", "json"]
+scoring_criteria:
+  - correct_skill: 50
+  - correct_args: 30
+  - correct_interpretation: 20

@@ -1,0 +1,26 @@
+{
+  "skill": "close-out-report",
+  "status": "ok",
+  "summary": "3 day(s) analyzed: $6100.00 total revenue, avg variance $+1.67.",
+  "data": {
+    "days": 3,
+    "date_range": {
+      "from": "2026-04-08",
+      "to": "2026-04-10"
+    },
+    "total_revenue": 6100.0,
+    "total_expected": 6095.0,
+    "avg_daily_revenue": 2033.33,
+    "total_variance": 5.0,
+    "avg_variance": 1.67,
+    "total_tips": 950.0,
+    "total_staff_tips": 760.0,
+    "total_house_tips": 190.0,
+    "waste_frequency": [
+      {"item": "lime", "count": 2},
+      {"item": "beer", "count": 2}
+    ]
+  },
+  "findings": [],
+  "metrics": {}
+}

@@ -1,0 +1,19 @@
+{
+  "skill": "vendor-order",
+  "status": "warn",
+  "summary": "Order draft for Coastal Spirits Co: 1 item(s).",
+  "data": {
+    "vendor": "Coastal Spirits Co",
+    "order_text": "ORDER FOR: Coastal Spirits Co\n\n1. Oak & Ember Bourbon - Qty: 3\n\nTotal items: 1",
+    "items_count": 1
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "code": "ORDER_DRAFT",
+      "subject": "Coastal Spirits Co",
+      "message": "Draft order for Coastal Spirits Co with 1 item(s)."
+    }
+  ],
+  "metrics": {}
+}

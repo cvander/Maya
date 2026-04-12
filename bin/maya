@@ -1,0 +1,137 @@
+#!/bin/bash
+# maya — CLI entry point for Maya bar management skills
+# Usage: maya <skill> [args...]
+#
+# Skills are Python packages under skills/.
+# Each skill is invoked as: python -m skills.<skill_name> [args...]
+
+set -euo pipefail
+
+MAYA_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SKILLS_DIR="$MAYA_ROOT/skills"
+
+# Map CLI names (with hyphens) to Python module names (with underscores)
+to_module() {
+  echo "$1" | tr '-' '_'
+}
+
+usage() {
+  cat <<EOF
+Usage: maya <skill> [args...]
+
+Commands:
+  maya <skill> [args...]   Run a skill
+  maya --list              List available skills
+  maya --help              Show this help
+
+Examples:
+  maya inventory-check --format json
+  maya close-out --date 2026-04-12 --cash-count 850 --card-total 1200 --expected 2045
+  maya eighty-six --add "Pliny the Elder" --reason "Keg kicked"
+  maya schedule-view
+  maya compliance-check
+
+Skills directory: $SKILLS_DIR
+EOF
+}
+
+list_skills() {
+  if [ ! -d "$SKILLS_DIR" ]; then
+    echo "No skills directory found at $SKILLS_DIR"
+    exit 1
+  fi
+
+  local found=0
+  for d in "$SKILLS_DIR"/*/; do
+    [ -d "$d" ] || continue
+    local name
+    name="$(basename "$d")"
+
+    # Skip internal dirs
+    case "$name" in
+      _*|__*) continue ;;
+    esac
+
+    # Check it's a real skill (has manifest.toml)
+    [ -f "$d/manifest.toml" ] || continue
+
+    found=1
+    # Extract description from manifest.toml
+    local desc
+    desc="$(grep -m1 '^description' "$d/manifest.toml" 2>/dev/null | sed 's/^description *= *"//;s/"$//' || echo "")"
+    local cli_name
+    cli_name="$(echo "$name" | tr '_' '-')"
+    if [ -n "$desc" ]; then
+      printf "  %-24s %s\n" "$cli_name" "$desc"
+    else
+      printf "  %s\n" "$cli_name"
+    fi
+  done
+
+  if [ "$found" -eq 0 ]; then
+    echo "No skills found in $SKILLS_DIR"
+  fi
+}
+
+# No arguments
+if [ $# -eq 0 ]; then
+  usage
+  exit 0
+fi
+
+case "$1" in
+  --help|-h)
+    usage
+    exit 0
+    ;;
+  --list|-l)
+    echo "Available skills:"
+    echo ""
+    list_skills
+    exit 0
+    ;;
+  --*)
+    echo "Unknown option: $1"
+    usage
+    exit 1
+    ;;
+esac
+
+# Run a skill
+SKILL_NAME="$1"
+shift
+MODULE_NAME="$(to_module "$SKILL_NAME")"
+SKILL_PATH="$SKILLS_DIR/$MODULE_NAME"
+
+if [ ! -d "$SKILL_PATH" ] || [ ! -f "$SKILL_PATH/manifest.toml" ]; then
+  echo "Unknown skill: $SKILL_NAME"
+  echo ""
+  echo "Available skills:"
+  echo ""
+  list_skills
+  exit 1
+fi
+
+# Find Python 3.11+ (check common locations)
+find_python() {
+  for candidate in python3.11 python3.12 python3.13 python3; do
+    local p
+    p="$(command -v "$candidate" 2>/dev/null || true)"
+    if [ -n "$p" ] && [ -x "$p" ]; then
+      echo "$p"
+      return
+    fi
+  done
+  # Homebrew fallback
+  for p in /opt/homebrew/bin/python3.11 /usr/local/bin/python3; do
+    if [ -x "$p" ]; then
+      echo "$p"
+      return
+    fi
+  done
+  echo "python3"
+}
+
+PYTHON="${PYTHON:-$(find_python)}"
+cd "$MAYA_ROOT"
+exec "$PYTHON" -m "skills.$MODULE_NAME" "$@"

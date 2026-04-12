@@ -1,0 +1,29 @@
+name: basic-schedule-coverage
+description: Staff roster + known events should produce a reasonable schedule
+input:
+  staff:
+    - name: Alex
+      roles: [bartender, barback]
+      max_hours: 40
+    - name: Jordan
+      roles: [bartender]
+      max_hours: 32
+    - name: Sam
+      roles: [barback]
+      max_hours: 25
+  events:
+    - date: "2026-04-15"
+      name: "Jazz Night"
+      expected_attendance: high
+    - date: "2026-04-17"
+      name: "Regular Friday"
+      expected_attendance: medium
+expected_properties:
+  - all_shifts_covered: true
+  - no_overtime_violations: true
+  - high_attendance_has_more_staff: true
+scoring_criteria:
+  - shift_coverage: 40
+  - labor_law_compliance: 30
+  - event_staffing: 20
+  - hours_balance: 10

@@ -1,0 +1,29 @@
+{
+  "skill": "schedule-notify",
+  "status": "ok",
+  "summary": "3 notification(s) generated.",
+  "data": {
+    "notifications": [
+      {
+        "staff": "Morgan",
+        "shift_count": 1,
+        "total_hours": 8.0,
+        "message": "Schedule for week of 2027-01-04:\n\n  Tue 16:00-00:00 (Bartender)\n\nTotal: 8.0h"
+      },
+      {
+        "staff": "Pat",
+        "shift_count": 2,
+        "total_hours": 16.0,
+        "message": "Schedule for week of 2027-01-04:\n\n  Mon 16:00-00:00 (Bartender)\n  Wed 16:00-00:00 (Bartender)\n\nTotal: 16.0h"
+      },
+      {
+        "staff": "Riley",
+        "shift_count": 1,
+        "total_hours": 8.0,
+        "message": "Schedule for week of 2027-01-04:\n\n  Mon 16:00-00:00 (Barback)\n\nTotal: 8.0h"
+      }
+    ]
+  },
+  "findings": [],
+  "metrics": {}
+}

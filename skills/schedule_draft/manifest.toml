@@ -1,0 +1,12 @@
+[skill]
+name = "schedule-draft"
+version = "0.1.0"
+description = "Generate a draft weekly schedule with labor law checks."
+safety = "read_only"
+pii_scope = "staff"
+failure_mode = "advisory"
+reads = ["docs/schedule/staff.md", "docs/calendar.md"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

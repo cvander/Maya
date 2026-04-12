@@ -1,0 +1,6 @@
+name: hermes-invocation
+description: Test that Hermes routes natural language to correct skill
+requires: [hermes, openrouter_api_key]
+scoring: rubric
+pass_threshold: 80
+scenarios_dir: scenarios/

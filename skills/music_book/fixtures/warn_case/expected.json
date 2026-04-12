@@ -1,0 +1,41 @@
+{
+  "skill": "music-book",
+  "status": "warn",
+  "summary": "Booking draft ready for Echo Valley on 2026-04-18 (date conflict found).",
+  "data": {
+    "artist_info": {
+      "name": "Echo Valley",
+      "genre": "Indie Folk",
+      "contact": "echovalley@test.com",
+      "rate": "$250",
+      "availability": "Fri-Sat",
+      "notes": "Duo act. Mellow vibes."
+    },
+    "message": "Subject: Booking Inquiry - 2026-04-18\n\nHi Echo Valley,\n\nWe'd love to have you play at Maya's on 2026-04-18.\n\nDetails:\n- Date: 2026-04-18\n- Your rate: $250\n- Venue: Maya's Bar, San Francisco\n- Notes: Duo act. Mellow vibes.\n\nLet us know if this works for you.\n\nBest,\nMaya",
+    "conflict": {
+      "date": "2026-04-18",
+      "existing": [
+        {
+          "artist": "Echo Valley",
+          "time": "20:00-23:00",
+          "status": "confirmed"
+        }
+      ]
+    }
+  },
+  "findings": [
+    {
+      "severity": "warn",
+      "code": "DATE_CONFLICT",
+      "subject": "2026-04-18",
+      "message": "Date 2026-04-18 already has booking(s): Echo Valley."
+    },
+    {
+      "severity": "info",
+      "code": "BOOKING_DRAFT",
+      "subject": "Echo Valley",
+      "message": "Outreach message generated via email."
+    }
+  ],
+  "metrics": {}
+}

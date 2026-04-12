@@ -1,0 +1,27 @@
+name: cert-expiring-detection
+description: Known expiring cert dates should produce correct alerts
+input:
+  compliance_state:
+    staff_certs:
+      - name: "Jordan Rivera"
+        cert: "RBS"
+        expires: "2026-05-01"
+      - name: "Sam Okafor"
+        cert: "RBS"
+        expires: "2026-03-15"
+    cooler_temps:
+      last_logged: "2026-04-10"
+    permits:
+      - name: "Liquor License"
+        renewal: "2026-06-15"
+  check_date: "2026-04-12"
+  days_ahead: 30
+expected_properties:
+  - expired_certs_detected: true
+  - expiring_certs_warned: true
+  - overdue_logs_flagged: true
+scoring_criteria:
+  - cert_detection: 40
+  - severity_accuracy: 30
+  - date_calculation: 20
+  - completeness: 10

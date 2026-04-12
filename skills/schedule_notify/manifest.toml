@@ -1,0 +1,12 @@
+[skill]
+name = "schedule-notify"
+version = "0.1.0"
+description = "Generate per-staff notification messages from a schedule."
+safety = "read_only"
+pii_scope = "staff"
+failure_mode = "advisory"
+reads = ["*.json"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

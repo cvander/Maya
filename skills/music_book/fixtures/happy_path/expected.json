@@ -1,0 +1,26 @@
+{
+  "skill": "music-book",
+  "status": "ok",
+  "summary": "Booking draft ready for The Wanderers on 2026-05-02.",
+  "data": {
+    "artist_info": {
+      "name": "The Wanderers",
+      "genre": "Rock",
+      "contact": "wanderers@test.com",
+      "rate": "$200",
+      "availability": "Mon-Thu",
+      "notes": "Three piece. Loud."
+    },
+    "message": "Subject: Booking Inquiry - 2026-05-02\n\nHi The Wanderers,\n\nWe'd love to have you play at Maya's on 2026-05-02.\n\nDetails:\n- Date: 2026-05-02\n- Your rate: $200\n- Venue: Maya's Bar, San Francisco\n- Notes: Three piece. Loud.\n\nLet us know if this works for you.\n\nBest,\nMaya",
+    "conflict": null
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "code": "BOOKING_DRAFT",
+      "subject": "The Wanderers",
+      "message": "Outreach message generated via email."
+    }
+  ],
+  "metrics": {}
+}

@@ -1,0 +1,36 @@
+{
+  "skill": "schedule-draft",
+  "status": "warn",
+  "summary": "Draft: 11 shift(s) for week of 2027-01-04, 5 finding(s).",
+  "data": {
+    "week_of": "2027-01-04",
+    "shifts": [
+      {"day": "Mon", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Pat", "role": "Bartender", "hours": 8.0},
+      {"day": "Mon", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Riley", "role": "Barback", "hours": 8.0},
+      {"day": "Tue", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Morgan", "role": "Bartender", "hours": 8.0},
+      {"day": "Tue", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Riley", "role": "Barback", "hours": 8.0},
+      {"day": "Wed", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Pat", "role": "Bartender", "hours": 8.0},
+      {"day": "Wed", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Quinn", "role": "Barback", "hours": 8.0},
+      {"day": "Thu", "shift": "Open", "start": "16:00", "end": "02:00", "staff": "Morgan", "role": "Bartender", "hours": 10.0},
+      {"day": "Thu", "shift": "Open", "start": "16:00", "end": "02:00", "staff": "Quinn", "role": "Barback", "hours": 10.0},
+      {"day": "Fri", "shift": "Open", "start": "16:00", "end": "02:00", "staff": "Pat", "role": "Bartender", "hours": 10.0},
+      {"day": "Fri", "shift": "Open", "start": "16:00", "end": "02:00", "staff": "Riley", "role": "Barback", "hours": 10.0},
+      {"day": "Sat", "shift": "Open", "start": "14:00", "end": "02:00", "staff": "Morgan", "role": "Bartender", "hours": 12.0}
+    ],
+    "staff_hours": {
+      "Pat": 26.0,
+      "Riley": 26.0,
+      "Morgan": 30.0,
+      "Quinn": 18.0
+    },
+    "events_note": "Calendar events found. Review docs/calendar.md for staffing impact."
+  },
+  "findings": [
+    {"severity": "warn", "code": "OVERTIME_RISK", "subject": "Pat", "message": "Pat scheduled 10.0h on Fri (>8h CA daily limit)."},
+    {"severity": "warn", "code": "OVERTIME_RISK", "subject": "Riley", "message": "Riley scheduled 10.0h on Fri (>8h CA daily limit)."},
+    {"severity": "warn", "code": "OVERTIME_RISK", "subject": "Morgan", "message": "Morgan scheduled 10.0h on Thu (>8h CA daily limit)."},
+    {"severity": "warn", "code": "OVERTIME_RISK", "subject": "Morgan", "message": "Morgan scheduled 12.0h on Sat (>8h CA daily limit)."},
+    {"severity": "warn", "code": "OVERTIME_RISK", "subject": "Quinn", "message": "Quinn scheduled 10.0h on Thu (>8h CA daily limit)."}
+  ],
+  "metrics": {}
+}

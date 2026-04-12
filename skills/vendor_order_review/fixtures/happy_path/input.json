@@ -1,0 +1,11 @@
+{
+  "skill": "inventory-check",
+  "status": "ok",
+  "summary": "5 item(s) checked. Nothing to reorder.",
+  "data": {
+    "items_scanned": 5,
+    "low_stock": []
+  },
+  "findings": [],
+  "metrics": {"duration_ms": 12}
+}

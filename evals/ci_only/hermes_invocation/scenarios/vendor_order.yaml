@@ -1,0 +1,8 @@
+name: vendor-order-routing
+input: "Draft an order for our wine distributor"
+expected_skill: vendor-order
+expected_args: ["--vendor", "wine-distributor", "--format", "json"]
+scoring_criteria:
+  - correct_skill: 50
+  - correct_args: 30
+  - correct_interpretation: 20

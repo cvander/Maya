@@ -1,0 +1,12 @@
+[skill]
+name = "vendor-order"
+version = "0.1.0"
+description = "Generate copy-paste-ready order text for a specific vendor."
+safety = "read_only"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = []
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

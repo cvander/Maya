@@ -1,0 +1,8 @@
+{
+  "skill": "vendor-order-review",
+  "status": "ok",
+  "summary": "No low stock items. No orders needed.",
+  "data": {"orders_by_vendor": {}, "total_items": 0},
+  "findings": [],
+  "metrics": {}
+}

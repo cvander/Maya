@@ -1,0 +1,14 @@
+{
+  "skill": "compliance-check",
+  "status": "ok",
+  "summary": "All compliance items current as of 2025-06-12.",
+  "data": {
+    "ref_date": "2025-06-12",
+    "days_ahead": 30,
+    "certs_checked": 3,
+    "logs_checked": 2,
+    "permits_checked": 3
+  },
+  "findings": [],
+  "metrics": {}
+}

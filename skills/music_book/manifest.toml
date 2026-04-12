@@ -1,0 +1,12 @@
+[skill]
+name = "music-book"
+version = "0.1.0"
+description = "Generate outreach messages for booking artists."
+safety = "read_only"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = ["docs/music/*.md"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

@@ -1,0 +1,11 @@
+{
+  "skill": "compliance-docs",
+  "status": "ok",
+  "summary": "All 5 expected compliance docs present and current.",
+  "data": {
+    "docs_checked": 5,
+    "docs_present": 5,
+    "docs_missing": 0
+  },
+  "findings": []
+}

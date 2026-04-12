@@ -1,0 +1,12 @@
+[skill]
+name = "cost-analysis"
+version = "0.1.0"
+description = "Calculate pour costs and margins from menu and inventory data."
+safety = "read_only"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = ["docs/menu/*.md", "docs/inventory/*.md"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

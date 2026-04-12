@@ -1,0 +1,12 @@
+[skill]
+name = "vendor-contact"
+version = "0.1.0"
+description = "Generate email body or phone script for contacting a vendor."
+safety = "read_only"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = ["docs/vendors/README.md"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

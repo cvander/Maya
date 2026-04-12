@@ -1,0 +1,12 @@
+[skill]
+name = "close-out-report"
+version = "0.1.0"
+description = "Aggregate close-out data over a date range."
+safety = "read_only"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = ["data/close-out/*.md"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []
