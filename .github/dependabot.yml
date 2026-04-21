@@ -1,0 +1,45 @@
+# Dependabot v2. Tracks github-actions and docker ecosystems.
+# A pip ecosystem block should be added in the PR that introduces
+# pyproject.toml (or requirements.txt); npm when the first package.json
+# lands. See https://docs.github.com/en/code-security/dependabot
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore(deps)
+      include: scope
+    labels:
+      - dependencies
+      - github-actions
+    groups:
+      actions-minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Etc/UTC
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: chore(deps)
+      include: scope
+    labels:
+      - dependencies
+      - docker
+    groups:
+      docker-minor-and-patch:
+        update-types:
+          - minor
+          - patch
