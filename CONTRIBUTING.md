@@ -110,3 +110,7 @@ Maya handles real bar operations. The bar holds confidences.
 ## Code of Conduct
 
 This project follows the [Contributor Covenant v2.1](CODE_OF_CONDUCT.md). Be decent.
+
+## Maintainer Setup
+
+If you are the project maintainer (or inherit maintainership), see [docs/MAINTAINER-SETUP.md](docs/MAINTAINER-SETUP.md) for the one-time GitHub settings, branch-protection recipe, and OpenSSF Best Practices application checklist that complement the CI hardening in this repo.
