@@ -1,0 +1,21 @@
+# Citation metadata. See https://citation-file-format.github.io/
+cff-version: 1.2.0
+message: "If you use Maya in your research or publications, please cite it using these metadata."
+type: software
+title: Maya
+abstract: >-
+  Maya is an open research project exploring AI-assisted bar and small-business
+  management, built on OpenClaw and orchestrated with Hermes.
+authors:
+  - family-names: Vander
+    given-names: C.
+    alias: cvander
+repository-code: "https://github.com/cvander/Maya"
+url: "https://github.com/cvander/Maya"
+license: MIT
+keywords:
+  - bar-management
+  - automation
+  - ai-agents
+  - openclaw
+  - hermes
