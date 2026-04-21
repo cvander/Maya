@@ -1,0 +1,23 @@
+name: low-stock-order-generation
+description: Known low inventory should produce correct vendor order list
+input:
+  inventory_state:
+    - item: "Slow Tide Pilsner"
+      category: beer
+      qty: 1
+      reorder_at: 2
+      vendor: "Pinecrest Brewing Dist"
+    - item: "Amber Trail"
+      category: beer
+      qty: 0
+      reorder_at: 1
+      vendor: "Pinecrest Brewing Dist"
+expected_properties:
+  - all_low_items_ordered: true
+  - correct_vendor_routing: true
+  - quantities_reasonable: true
+scoring_criteria:
+  - item_coverage: 40
+  - vendor_accuracy: 30
+  - quantity_correctness: 20
+  - format_quality: 10

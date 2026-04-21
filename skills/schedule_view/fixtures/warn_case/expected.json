@@ -1,0 +1,12 @@
+{
+  "skill": "schedule-view",
+  "status": "warn",
+  "summary": "No schedule entries found.",
+  "data": {
+    "week_of": "2026-04-20",
+    "entries": [],
+    "staff_hours": {}
+  },
+  "findings": [],
+  "metrics": {}
+}

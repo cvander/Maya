@@ -1,0 +1,10 @@
+{
+  "skill": "schedule-notify",
+  "status": "warn",
+  "summary": "No staff shifts found in input.",
+  "data": {
+    "notifications": []
+  },
+  "findings": [],
+  "metrics": {}
+}

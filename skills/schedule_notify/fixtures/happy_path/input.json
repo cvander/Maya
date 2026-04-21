@@ -1,0 +1,14 @@
+{
+  "skill": "schedule-view",
+  "status": "ok",
+  "data": {
+    "week_of": "2027-01-04",
+    "entries": [
+      {"day": "Mon", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Pat", "role": "Bartender", "hours": 8.0},
+      {"day": "Mon", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Riley", "role": "Barback", "hours": 8.0},
+      {"day": "Tue", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Morgan", "role": "Bartender", "hours": 8.0},
+      {"day": "Wed", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Pat", "role": "Bartender", "hours": 8.0}
+    ],
+    "staff_hours": {"Pat": 16.0, "Riley": 8.0, "Morgan": 8.0}
+  }
+}

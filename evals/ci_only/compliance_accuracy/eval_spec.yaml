@@ -1,0 +1,6 @@
+name: compliance-accuracy
+description: Test that compliance-check correctly identifies expiring certs and overdue items
+requires: [hermes, openrouter_api_key]
+scoring: rubric
+pass_threshold: 80
+scenarios_dir: scenarios/

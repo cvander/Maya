@@ -1,0 +1,37 @@
+{
+  "skill": "inventory-check",
+  "status": "warn",
+  "summary": "3 item(s) at or below reorder threshold.",
+  "data": {
+    "items_scanned": 8,
+    "low_stock": [
+      {
+        "category": "beer",
+        "item": "Slow Tide Pilsner",
+        "qty": 1,
+        "reorder_at": 2,
+        "par": 4
+      },
+      {
+        "category": "spirits",
+        "item": "Oak & Ember Bourbon",
+        "qty": 1,
+        "reorder_at": 2,
+        "par": 4
+      },
+      {
+        "category": "beer",
+        "item": "Amber Trail",
+        "qty": 0,
+        "reorder_at": 1,
+        "par": 3
+      }
+    ]
+  },
+  "findings": [
+    {"severity": "warn", "code": "LOW_STOCK", "subject": "beer/Slow Tide Pilsner", "message": "Slow Tide Pilsner: 1 on hand, reorder at 2."},
+    {"severity": "warn", "code": "LOW_STOCK", "subject": "spirits/Oak & Ember Bourbon", "message": "Oak & Ember Bourbon: 1 on hand, reorder at 2."},
+    {"severity": "warn", "code": "LOW_STOCK", "subject": "beer/Amber Trail", "message": "Amber Trail: 0 on hand, reorder at 1."}
+  ],
+  "metrics": {"duration_ms": 15}
+}

@@ -1,0 +1,25 @@
+{
+  "skill": "vendor-contact",
+  "status": "warn",
+  "summary": "Phone draft for Pinecrest Brewing Dist.",
+  "data": {
+    "vendor": "Pinecrest Brewing Dist",
+    "method": "phone",
+    "message": "Ask for: Sam Lee\nAccount: PB-5678\n\nScript:\nHi, this is Maya calling to place an order.\nAccount number: PB-5678.\n[READ ORDER DETAILS]\nWhat's the earliest delivery date?\nThanks.",
+    "contact_info": {
+      "vendor": "Pinecrest Brewing Dist",
+      "rep": "Sam Lee",
+      "phone": "555-0202",
+      "email": "sam@pinecrest.example.com"
+    }
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "code": "CONTACT_DRAFT",
+      "subject": "Pinecrest Brewing Dist",
+      "message": "Phone draft generated for Pinecrest Brewing Dist."
+    }
+  ],
+  "metrics": {}
+}

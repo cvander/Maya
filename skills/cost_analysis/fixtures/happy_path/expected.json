@@ -1,0 +1,88 @@
+{
+  "skill": "cost-analysis",
+  "status": "warn",
+  "summary": "7 item(s) analyzed, 3 finding(s).",
+  "data": {
+    "items_analyzed": 7,
+    "category_filter": "all",
+    "items": [
+      {
+        "name": "Sunset Sour",
+        "category": "cocktails",
+        "price": 14.0,
+        "estimated_cost": 4.25,
+        "pour_cost_pct": 0.3036,
+        "margin": 9.75
+      },
+      {
+        "name": "Harbor Mule",
+        "category": "cocktails",
+        "price": 12.0,
+        "estimated_cost": 2.5,
+        "pour_cost_pct": 0.2083,
+        "margin": 9.5
+      },
+      {
+        "name": "Draft pint",
+        "category": "beer",
+        "price": 9.0,
+        "estimated_cost": 2.52,
+        "pour_cost_pct": 0.28,
+        "margin": 6.48
+      },
+      {
+        "name": "Bottles",
+        "category": "beer",
+        "price": 7.0,
+        "estimated_cost": 1.96,
+        "pour_cost_pct": 0.28,
+        "margin": 5.04
+      },
+      {
+        "name": "Glass",
+        "category": "wine",
+        "price": 13.0,
+        "estimated_cost": 3.64,
+        "pour_cost_pct": 0.28,
+        "margin": 9.36
+      },
+      {
+        "name": "Well",
+        "category": "spirits",
+        "price": 10.0,
+        "estimated_cost": 2.0,
+        "pour_cost_pct": 0.2,
+        "margin": 8.0
+      },
+      {
+        "name": "Premium",
+        "category": "spirits",
+        "price": 14.0,
+        "estimated_cost": 2.0,
+        "pour_cost_pct": 0.1429,
+        "margin": 12.0
+      }
+    ]
+  },
+  "findings": [
+    {
+      "severity": "warn",
+      "code": "HIGH_POUR_COST",
+      "subject": "cocktails/Sunset Sour",
+      "message": "Sunset Sour: pour cost 30% exceeds 30% threshold."
+    },
+    {
+      "severity": "warn",
+      "code": "LOW_MARGIN",
+      "subject": "beer/Draft pint",
+      "message": "Draft pint: margin $6.48 below $8.00 threshold."
+    },
+    {
+      "severity": "warn",
+      "code": "LOW_MARGIN",
+      "subject": "beer/Bottles",
+      "message": "Bottles: margin $5.04 below $8.00 threshold."
+    }
+  ],
+  "metrics": {}
+}

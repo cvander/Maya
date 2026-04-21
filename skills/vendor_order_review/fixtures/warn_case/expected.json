@@ -1,0 +1,56 @@
+{
+  "skill": "vendor-order-review",
+  "status": "warn",
+  "summary": "3 item(s) need ordering from 2 vendor(s).",
+  "data": {
+    "orders_by_vendor": {
+      "Pinecrest Brewing Dist": [
+        {
+          "item": "Slow Tide Pilsner",
+          "category": "beer",
+          "current_qty": 1,
+          "par": 4,
+          "order_qty": 3
+        },
+        {
+          "item": "Amber Trail",
+          "category": "beer",
+          "current_qty": 0,
+          "par": 3,
+          "order_qty": 3
+        }
+      ],
+      "Coastal Spirits Co": [
+        {
+          "item": "Oak & Ember Bourbon",
+          "category": "spirits",
+          "current_qty": 1,
+          "par": 4,
+          "order_qty": 3
+        }
+      ]
+    },
+    "total_items": 3
+  },
+  "findings": [
+    {
+      "severity": "warn",
+      "code": "ORDER_NEEDED",
+      "subject": "Pinecrest Brewing Dist/Slow Tide Pilsner",
+      "message": "Order 3 x Slow Tide Pilsner from Pinecrest Brewing Dist (current: 1, par: 4)."
+    },
+    {
+      "severity": "warn",
+      "code": "ORDER_NEEDED",
+      "subject": "Pinecrest Brewing Dist/Amber Trail",
+      "message": "Order 3 x Amber Trail from Pinecrest Brewing Dist (current: 0, par: 3)."
+    },
+    {
+      "severity": "warn",
+      "code": "ORDER_NEEDED",
+      "subject": "Coastal Spirits Co/Oak & Ember Bourbon",
+      "message": "Order 3 x Oak & Ember Bourbon from Coastal Spirits Co (current: 1, par: 4)."
+    }
+  ],
+  "metrics": {}
+}

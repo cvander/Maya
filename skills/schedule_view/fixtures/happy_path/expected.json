@@ -1,0 +1,23 @@
+{
+  "skill": "schedule-view",
+  "status": "ok",
+  "summary": "5 shift(s) scheduled for week of 2026-04-20.",
+  "data": {
+    "week_of": "2026-04-20",
+    "entries": [
+      {"day": "Mon", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Pat", "role": "Bartender", "hours": 8.0},
+      {"day": "Mon", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Riley", "role": "Barback", "hours": 8.0},
+      {"day": "Tue", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Morgan", "role": "Bartender", "hours": 8.0},
+      {"day": "Wed", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Pat", "role": "Bartender", "hours": 8.0},
+      {"day": "Wed", "shift": "Open", "start": "16:00", "end": "00:00", "staff": "Quinn", "role": "Barback", "hours": 8.0}
+    ],
+    "staff_hours": {
+      "Pat": 16.0,
+      "Riley": 8.0,
+      "Morgan": 8.0,
+      "Quinn": 8.0
+    }
+  },
+  "findings": [],
+  "metrics": {}
+}

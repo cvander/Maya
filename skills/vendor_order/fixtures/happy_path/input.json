@@ -1,0 +1,28 @@
+{
+  "skill": "vendor-order-review",
+  "status": "warn",
+  "summary": "2 item(s) need ordering from 1 vendor(s).",
+  "data": {
+    "orders_by_vendor": {
+      "Pinecrest Brewing Dist": [
+        {
+          "item": "Slow Tide Pilsner",
+          "category": "beer",
+          "current_qty": 1,
+          "par": 4,
+          "order_qty": 3
+        },
+        {
+          "item": "Amber Trail",
+          "category": "beer",
+          "current_qty": 0,
+          "par": 3,
+          "order_qty": 3
+        }
+      ]
+    },
+    "total_items": 2
+  },
+  "findings": [],
+  "metrics": {}
+}

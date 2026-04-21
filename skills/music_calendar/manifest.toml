@@ -1,0 +1,12 @@
+[skill]
+name = "music-calendar"
+version = "0.1.0"
+description = "View and filter the music booking calendar."
+safety = "read_only"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = ["docs/music/*.md"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

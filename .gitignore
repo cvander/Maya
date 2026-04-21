@@ -21,6 +21,20 @@ logs/
 # Dependencies
 node_modules/
 
+# Python
+__pycache__/
+*.pyc
+
 # Runtime
 tmp/
 .cache/
+
+# Skill fixtures with real data
+skills/**/fixtures/local/
+
+# Mutating skill data (runtime output, not deployed)
+data/close-out/*.md
+!data/close-out/README.md
+!data/close-out/template.md
+data/86/*.md
+!data/86/README.md

@@ -1,0 +1,25 @@
+{
+  "skill": "vendor-contact",
+  "status": "warn",
+  "summary": "Email draft for Coastal Spirits Co.",
+  "data": {
+    "vendor": "Coastal Spirits Co",
+    "method": "email",
+    "message": "Hi Jake Torres,\n\nI'd like to place an order for Maya. Details below:\n\n[INSERT ORDER DETAILS HERE]\n\nPlease confirm availability and delivery date.\n\nThanks,\nMaya",
+    "contact_info": {
+      "vendor": "Coastal Spirits Co",
+      "rep": "Jake Torres",
+      "phone": "555-0101",
+      "email": "jake@coastalspirits.example.com"
+    }
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "code": "CONTACT_DRAFT",
+      "subject": "Coastal Spirits Co",
+      "message": "Email draft generated for Coastal Spirits Co."
+    }
+  ],
+  "metrics": {}
+}

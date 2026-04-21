@@ -1,0 +1,8 @@
+name: inventory-check-routing
+input: "Check if we need to order more beer"
+expected_skill: inventory-check
+expected_args: ["--format", "json"]
+scoring_criteria:
+  - correct_skill: 50
+  - correct_args: 30
+  - correct_interpretation: 20

@@ -1,0 +1,12 @@
+[skill]
+name = "close-out"
+version = "0.1.0"
+description = "Nightly cash reconciliation, tip split, and waste logging."
+safety = "mutating_non_idempotent"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = []
+writes = ["data/close-out/*.md"]
+network = false
+hard_stops_touched = []
+env_required = []

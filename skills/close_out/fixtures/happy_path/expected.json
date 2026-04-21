@@ -1,0 +1,36 @@
+{
+  "skill": "close-out",
+  "status": "ok",
+  "summary": "Close-out 2026-04-10: actual $2050.00, expected $2045.00, variance $+5.00.",
+  "data": {
+    "date": "2026-04-10",
+    "cash_count": 850.0,
+    "card_total": 1200.0,
+    "actual_total": 2050.0,
+    "expected": 2045.0,
+    "variance": 5.0,
+    "tip_total": 320.0,
+    "staff_tips": 256.0,
+    "house_tips": 64.0,
+    "waste_items": [
+      {"item": "lime", "qty": 5.0},
+      {"item": "beer", "qty": 2.0}
+    ],
+    "output_file": "__DYNAMIC__"
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "code": "TIPS_SPLIT",
+      "subject": "2026-04-10",
+      "message": "Tips $320.00 split: staff $256.00, house $64.00."
+    },
+    {
+      "severity": "info",
+      "code": "WASTE_LOGGED",
+      "subject": "2026-04-10",
+      "message": "Waste logged: lime:5.0, beer:2.0."
+    }
+  ],
+  "metrics": {}
+}

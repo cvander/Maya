@@ -1,0 +1,55 @@
+{
+  "skill": "music-calendar",
+  "status": "ok",
+  "summary": "3 event(s) found, total fees: $750.",
+  "data": {
+    "events": [
+      {
+        "date": "2026-04-18",
+        "artist": "Echo Valley",
+        "time": "20:00-23:00",
+        "genre": "Indie Folk",
+        "fee": "$250",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-04-20",
+        "artist": "Midnight Sun",
+        "time": "21:00-01:00",
+        "genre": "Electronic",
+        "fee": "$300",
+        "status": "confirmed"
+      },
+      {
+        "date": "2026-04-25",
+        "artist": "The Wanderers",
+        "time": "20:00-23:00",
+        "genre": "Rock",
+        "fee": "$200",
+        "status": "confirmed"
+      }
+    ],
+    "total_fees": 750
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "code": "EVENT",
+      "subject": "2026-04-18/Echo Valley",
+      "message": "Echo Valley on 2026-04-18 (confirmed) - $250."
+    },
+    {
+      "severity": "info",
+      "code": "EVENT",
+      "subject": "2026-04-20/Midnight Sun",
+      "message": "Midnight Sun on 2026-04-20 (confirmed) - $300."
+    },
+    {
+      "severity": "info",
+      "code": "EVENT",
+      "subject": "2026-04-25/The Wanderers",
+      "message": "The Wanderers on 2026-04-25 (confirmed) - $200."
+    }
+  ],
+  "metrics": {}
+}

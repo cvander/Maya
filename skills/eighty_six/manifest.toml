@@ -1,0 +1,12 @@
+[skill]
+name = "eighty-six"
+version = "0.1.0"
+description = "Manage the 86 list of currently unavailable items."
+safety = "idempotent"
+pii_scope = "none"
+failure_mode = "advisory"
+reads = ["data/86/current.md"]
+writes = ["data/86/current.md"]
+network = false
+hard_stops_touched = []
+env_required = []

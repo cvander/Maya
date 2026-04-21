@@ -1,0 +1,39 @@
+{
+  "skill": "eighty-six",
+  "status": "warn",
+  "summary": "2 item(s) currently 86'd.",
+  "data": {
+    "items": [
+      {
+        "item": "Golden Horizon IPA",
+        "category": "beer",
+        "time": "2026-04-12 21:30",
+        "reason": "Keg kicked",
+        "reported_by": "Sam"
+      },
+      {
+        "item": "Midnight Velvet Bourbon",
+        "category": "spirits",
+        "time": "2026-04-12 20:15",
+        "reason": "Bottle empty",
+        "reported_by": "Jordan"
+      }
+    ],
+    "count": 2
+  },
+  "findings": [
+    {
+      "severity": "warn",
+      "code": "CURRENTLY_86D",
+      "subject": "Golden Horizon IPA",
+      "message": "Golden Horizon IPA (beer) - 86'd since 2026-04-12 21:30: Keg kicked"
+    },
+    {
+      "severity": "warn",
+      "code": "CURRENTLY_86D",
+      "subject": "Midnight Velvet Bourbon",
+      "message": "Midnight Velvet Bourbon (spirits) - 86'd since 2026-04-12 20:15: Bottle empty"
+    }
+  ],
+  "metrics": {}
+}

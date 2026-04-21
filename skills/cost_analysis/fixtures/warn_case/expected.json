@@ -1,0 +1,68 @@
+{
+  "skill": "cost-analysis",
+  "status": "warn",
+  "summary": "3 item(s) analyzed, 5 finding(s).",
+  "data": {
+    "items_analyzed": 3,
+    "category_filter": "all",
+    "items": [
+      {
+        "name": "Expensive Sour",
+        "category": "cocktails",
+        "price": 10.0,
+        "estimated_cost": 6.5,
+        "pour_cost_pct": 0.65,
+        "margin": 3.5
+      },
+      {
+        "name": "Draft pint",
+        "category": "beer",
+        "price": 5.0,
+        "estimated_cost": 1.4,
+        "pour_cost_pct": 0.28,
+        "margin": 3.6
+      },
+      {
+        "name": "Well",
+        "category": "spirits",
+        "price": 6.0,
+        "estimated_cost": 2.0,
+        "pour_cost_pct": 0.3333,
+        "margin": 4.0
+      }
+    ]
+  },
+  "findings": [
+    {
+      "severity": "warn",
+      "code": "HIGH_POUR_COST",
+      "subject": "cocktails/Expensive Sour",
+      "message": "Expensive Sour: pour cost 65% exceeds 30% threshold."
+    },
+    {
+      "severity": "warn",
+      "code": "LOW_MARGIN",
+      "subject": "cocktails/Expensive Sour",
+      "message": "Expensive Sour: margin $3.50 below $8.00 threshold."
+    },
+    {
+      "severity": "warn",
+      "code": "LOW_MARGIN",
+      "subject": "beer/Draft pint",
+      "message": "Draft pint: margin $3.60 below $8.00 threshold."
+    },
+    {
+      "severity": "warn",
+      "code": "HIGH_POUR_COST",
+      "subject": "spirits/Well",
+      "message": "Well: pour cost 33% exceeds 30% threshold."
+    },
+    {
+      "severity": "warn",
+      "code": "LOW_MARGIN",
+      "subject": "spirits/Well",
+      "message": "Well: margin $4.00 below $8.00 threshold."
+    }
+  ],
+  "metrics": {}
+}

@@ -1,0 +1,12 @@
+[skill]
+name = "schedule-view"
+version = "0.1.0"
+description = "Display the current weekly staff schedule."
+safety = "read_only"
+pii_scope = "staff"
+failure_mode = "advisory"
+reads = ["docs/schedule/current.md"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

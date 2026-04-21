@@ -1,0 +1,30 @@
+{
+  "skill": "vendor-order-review",
+  "status": "warn",
+  "summary": "3 item(s) need ordering from 2 vendor(s).",
+  "data": {
+    "orders_by_vendor": {
+      "Pinecrest Brewing Dist": [
+        {
+          "item": "Slow Tide Pilsner",
+          "category": "beer",
+          "current_qty": 1,
+          "par": 4,
+          "order_qty": 3
+        }
+      ],
+      "Coastal Spirits Co": [
+        {
+          "item": "Oak & Ember Bourbon",
+          "category": "spirits",
+          "current_qty": 1,
+          "par": 4,
+          "order_qty": 3
+        }
+      ]
+    },
+    "total_items": 2
+  },
+  "findings": [],
+  "metrics": {}
+}

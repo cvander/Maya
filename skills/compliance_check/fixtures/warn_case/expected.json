@@ -1,0 +1,45 @@
+{
+  "skill": "compliance-check",
+  "status": "warn",
+  "summary": "5 compliance finding(s) as of 2025-06-05.",
+  "data": {
+    "ref_date": "2025-06-05",
+    "days_ahead": 30,
+    "certs_checked": 3,
+    "logs_checked": 2,
+    "permits_checked": 3
+  },
+  "findings": [
+    {
+      "severity": "warn",
+      "code": "CERT_EXPIRING",
+      "subject": "Jordan Rivera",
+      "message": "Jordan Rivera: RBS cert expires on 2025-06-20 (15 days)."
+    },
+    {
+      "severity": "fail",
+      "code": "CERT_EXPIRED",
+      "subject": "Sam Okafor",
+      "message": "Sam Okafor: RBS cert expired on 2025-05-01 (35 days ago)."
+    },
+    {
+      "severity": "warn",
+      "code": "LOG_OVERDUE",
+      "subject": "cooler-temps",
+      "message": "Cooler temperature log last updated 2025-05-25 (11 days ago, max 7 days)."
+    },
+    {
+      "severity": "warn",
+      "code": "PERMIT_RENEWAL",
+      "subject": "Liquor License",
+      "message": "Liquor License: renewal due 2025-06-25 (20 days)."
+    },
+    {
+      "severity": "warn",
+      "code": "INSPECTION_DUE",
+      "subject": "Health",
+      "message": "Health inspection expected 2025-06-20 (15 days)."
+    }
+  ],
+  "metrics": {}
+}

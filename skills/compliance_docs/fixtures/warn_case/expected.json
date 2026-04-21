@@ -1,0 +1,10 @@
+{
+  "skill": "compliance-docs",
+  "status": "warn",
+  "data": {
+    "docs_checked": 5,
+    "docs_present": 4,
+    "docs_missing": 1
+  },
+  "expected_codes": ["DOC_EMPTY", "DOC_MISSING"]
+}

@@ -1,0 +1,12 @@
+[skill]
+name = "compliance-check"
+version = "0.1.0"
+description = "Scan compliance docs for expiring certs, overdue logs, and permit renewals."
+safety = "read_only"
+pii_scope = "staff"
+failure_mode = "advisory"
+reads = ["docs/compliance/*.md", "docs/permits/README.md"]
+writes = []
+network = false
+hard_stops_touched = []
+env_required = []

@@ -1,0 +1,6 @@
+name: vendor-completeness
+description: Test that vendor-order-review produces complete order lists from known inventory
+requires: [hermes, openrouter_api_key]
+scoring: rubric
+pass_threshold: 80
+scenarios_dir: scenarios/

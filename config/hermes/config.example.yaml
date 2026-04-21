@@ -1,4 +1,4 @@
-# Hermes Orchestration Configuration -Maya
+# Hermes Orchestration Configuration - Maya
 # Copy to config.yaml and fill in your values
 
 orchestrator:
@@ -13,15 +13,14 @@ agents:
     always_on: true
 
 routing:
-  # How tasks get routed between agents and services
   vendor_communication:
     agent: maya
-    channels: []        # add integrations as tested
+    channels: []
     fallback: log-and-notify
 
   inventory:
     agent: maya
-    storage: local      # swap for a remote store when ready
+    storage: local
     alerts:
       low_stock: true
       reorder_point: true
@@ -48,12 +47,11 @@ services:
   #   key: ${SERVICE_KEY}
 
 schedules:
-  # Cron-style schedules for recurring tasks
   daily_inventory_check:
     cron: "0 10 * * *"
     skill: inventory-check
 
-  weekly_vendor_orders:
+  weekly_vendor_review:
     cron: "0 9 * * 1"
     skill: vendor-order-review
 
@@ -64,6 +62,11 @@ schedules:
   monthly_compliance_review:
     cron: "0 10 1 * *"
     skill: compliance-check
+
+  # --- Wave 2 skills (uncomment when implemented) ---
+  # weekly_music_calendar:
+  #   cron: "0 10 * * 3"
+  #   skill: music-calendar
 
 logging:
   level: info

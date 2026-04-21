@@ -2,66 +2,87 @@
 
 Self-contained, callable units of work. Each skill runs on a Mac Mini and can be invoked via CLI or through Hermes orchestration.
 
+See [CONTRACT.md](CONTRACT.md) for the skill contract: inputs, outputs, exit codes, manifest format, logging rules, and testing pattern.
+
 ## Usage
 
 ```bash
 # Direct CLI invocation
-maya <skill-name> [options]
+python -m skills.<skill_name> [options]
 
-# List available skills
-maya --list
+# Standard flags
+python -m skills.inventory_check --format json
+python -m skills.inventory_check --inventory-dir path/to/fixtures
 
-# Via Hermes orchestration (planned)
-hermes run <skill-name> [options]
-
-# Via Claude Code (planned)
-/skill <skill-name>
+# Skill-specific flags (via extra_parser)
+python -m skills.close_out --date 2026-04-12 --cash-count 1500 --card-total 3200 --expected 4700
+python -m skills.eighty_six --add "Pliny the Elder" --reason "Keg kicked"
 ```
 
 ## Available Skills
 
-### Implemented
+### Inventory
+| Skill | Status | Description |
+|-------|--------|-------------|
+| `inventory-check` | implemented | Scan current stock levels, flag low items |
 
-| Skill | Description | Usage |
-|-------|-------------|-------|
-| `close-out` | End-of-night cash count and reconciliation | `maya close-out [--date YYYY-MM-DD]` |
+### Vendors
+| Skill | Status | Description |
+|-------|--------|-------------|
+| `vendor-order-review` | implemented | Review upcoming order needs across all vendors |
+| `vendor-order` | implemented | Draft a copy-paste-ready order for a specific vendor |
+| `vendor-contact` | implemented | Generate email body or phone script for a vendor |
 
-### Planned
+### Scheduling
+| Skill | Status | Description |
+|-------|--------|-------------|
+| `schedule-view` | implemented | Show the current week's schedule |
+| `schedule-draft` | implemented | Draft next week's schedule with labor law flags |
+| `schedule-notify` | implemented | Generate per-staff notification messages |
 
-| Skill | Description |
-|-------|-------------|
-| `inventory-check` | Scan current stock levels, flag low items |
-| `inventory-count` | Full count workflow with variance tracking |
-| `inventory-report` | Generate inventory summary for a date range |
-| `vendor-order` | Draft and send an order to a specific vendor |
-| `vendor-order-review` | Review upcoming order needs across all vendors |
-| `vendor-contact` | Send a message to a vendor (email or phone) |
-| `schedule-view` | Show the current week's schedule |
-| `schedule-draft` | Draft next week's schedule based on patterns |
-| `schedule-notify` | Send schedule to staff |
-| `close-out-report` | Generate close-out summary for a date range |
-| `music-book` | Reach out to a musician for booking |
-| `music-calendar` | View upcoming live music schedule |
-| `compliance-check` | Review upcoming compliance deadlines |
-| `compliance-docs` | Gather and organize compliance documents |
+### Close-Out
+| Skill | Status | Description |
+|-------|--------|-------------|
+| `close-out` | implemented | End-of-night cash reconciliation + tips + waste |
+| `close-out-report` | implemented | Aggregate close-out data for a date range |
+| `cost-analysis` | implemented | Pour cost, COGS, and margin analysis per drink |
+
+### 86 List
+| Skill | Status | Description |
+|-------|--------|-------------|
+| `eighty-six` | implemented | Manage items currently unavailable (add/remove/list) |
+
+### Compliance
+| Skill | Status | Description |
+|-------|--------|-------------|
+| `compliance-check` | implemented | Review upcoming compliance deadlines and cert expirations |
+| `compliance-docs` | implemented | Check completeness of compliance documentation |
+
+### Music
+| Skill | Status | Description |
+|-------|--------|-------------|
+| `music-book` | implemented | Generate booking outreach for musicians |
+| `music-calendar` | implemented | View and filter upcoming music schedule |
 
 ## Writing New Skills
 
-Each skill is a standalone script in this directory. Follow this pattern:
+Each skill is a Python package under `skills/`. Follow the contract in [CONTRACT.md](CONTRACT.md).
 
-```bash
-#!/bin/bash
-# skill: skill-name
-# description: What this skill does
-# usage: maya skill-name [options]
-
-set -euo pipefail
-
-# Skill logic here
-```
+Use `skills/_skeleton/` as your starting template. It includes:
+- `__main__.py` with `extra_parser` pattern for custom CLI args
+- `main.py` with `run(ctx) -> Result` entry point
+- `test_main.py` with golden-output test pattern
+- `manifest.toml` and `SKILL.md` templates
 
 Keep skills:
 - **Single-purpose** - one skill, one job
 - **CLI-friendly** - works from a terminal, returns clean output
 - **Fail-safe** - the bar runs without them; failures log, not crash
-- **Minimal dependencies** - runs on a Mac Mini with standard tools
+- **Minimal dependencies** - stdlib only, runs on a Mac Mini with standard tools
+
+### Hermes Discovery
+
+If your skill will be invoked by Hermes orchestration (not just CLI), add a `SKILL.md` alongside `manifest.toml`. See [CONTRACT.md](CONTRACT.md) for the format.
+
+- `manifest.toml` - runtime safety (what the skill is allowed to do)
+- `SKILL.md` - orchestrator discovery (when and how to invoke the skill)

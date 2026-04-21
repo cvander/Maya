@@ -8,7 +8,7 @@
   },
   "permissions": {
     "allow_edit": ["skills/**", "config/**", "integrations/**"],
-    "protect": ["AGENTS.md", "DREAMS.md", "SOUL.md"],
+    "protect": ["AGENTS.md", "DREAMS.md", "Maya-Soul.md"],
     "never_delete": true
   }
 }
