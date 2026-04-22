@@ -20,7 +20,7 @@ Maya runs on a Mac Mini behind a bar. Keep that in mind for everything you build
 
 - macOS (tested on Mac Mini)
 - [OpenClaw](https://openclaw.org)
-- [Hermes](https://hermes.org)
+- [Hermes](https://hermes-agent.org/)
 - [Claude Code](https://claude.ai/code) CLI
 
 ### Getting Started
