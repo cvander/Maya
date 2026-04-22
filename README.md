@@ -2,7 +2,7 @@
 
 **An open experiment in automating the business side of running a bar, so the human side gets more room to breathe.**
 
-Built on [OpenClaw](https://openclaw.org) · Orchestrated with [Hermes](https://hermes.org) · Developed with [Claude Code](https://claude.ai/code)
+Built on [OpenClaw](https://openclaw.org) · Orchestrated with [Hermes](https://hermes-agent.org/) · Developed with [Claude Code](https://claude.ai/code)
 
 ---
 
@@ -89,7 +89,7 @@ See [skills/](skills/) for the full catalog.
 
 - macOS (tested on Mac Mini)
 - [OpenClaw](https://openclaw.org) installed
-- [Hermes](https://hermes.org) installed
+- [Hermes](https://hermes-agent.org/) installed
 - [Claude Code](https://claude.ai/code) CLI
 
 ### Setup
