@@ -1,0 +1,13 @@
+# markdownlint rules. See https://github.com/DavidAnson/markdownlint
+# Prose-heavy docs — keep the ruleset minimal to avoid fighting content.
+default: true
+
+# MD013 — Line length. Prose can run long; disable.
+MD013: false
+
+# MD033 — Inline HTML. Allowed for badge markup and the occasional <details>.
+MD033: false
+
+# MD041 — First line in file must be a top-level heading. CHANGELOG and
+# some templates violate this intentionally; disable.
+MD041: false
