@@ -49,7 +49,7 @@ list_skills() {
 
     # Skip internal dirs
     case "$name" in
-      _*|__*) continue ;;
+      _*) continue ;;
     esac
 
     # Check it's a real skill (has manifest.toml)
