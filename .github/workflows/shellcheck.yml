@@ -8,6 +8,7 @@ on:
       - 'skills/**'
       - 'setup.sh'
       - 'bin/**'
+      - '.github/workflows/shellcheck.yml'
   push:
     branches: [main]
     paths:
@@ -16,6 +17,7 @@ on:
       - 'skills/**'
       - 'setup.sh'
       - 'bin/**'
+      - '.github/workflows/shellcheck.yml'
 
 permissions: {}
 

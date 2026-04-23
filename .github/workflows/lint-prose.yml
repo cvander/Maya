@@ -6,12 +6,20 @@ on:
       - '**/*.md'
       - '**/*.yml'
       - '**/*.yaml'
+      - '.lycheeignore'
+      - '.markdownlint.yaml'
+      - '.yamllint.yaml'
+      - '.github/workflows/lint-prose.yml'
   push:
     branches: [main]
     paths:
       - '**/*.md'
       - '**/*.yml'
       - '**/*.yaml'
+      - '.lycheeignore'
+      - '.markdownlint.yaml'
+      - '.yamllint.yaml'
+      - '.github/workflows/lint-prose.yml'
 
 permissions: {}
 
