@@ -82,10 +82,24 @@ exist:
   a GitHub Organization account (gitleaks-action is free for personal
   accounts). Leaving it unset is correct for the current personal-account
   setup.
-- **`GITLEAKS_PRIVATE_CONFIG`** — optional overlay of bar-specific
-  gitleaks rules (regulars' names, local PII patterns, etc.) that must
-  not be committed to the public repo. See the `.github/workflows/gitleaks.yml`
-  comment block for format. Leaving it unset is a safe default.
+- **`GITLEAKS_PRIVATE_CONFIG`** — optional overlay of gitleaks rules
+  that must stay private (regulars' names, local PII patterns, etc.).
+
+  **Format:** the secret value is pasted verbatim into a file and
+  appended onto `.gitleaks.toml` at CI time. Supply one or more
+  additional rule tables in the standard gitleaks TOML syntax:
+
+  ```toml
+  [[rules]]
+  id = "private-regular-alias"
+  description = "Known nickname for a specific regular; redact on commit"
+  regex = '''(?i)\b(alias-one|alias-two)\b'''
+  tags = ["pii", "private"]
+  ```
+
+  **Set via:** Settings → Secrets and variables → Actions → New
+  repository secret. Leaving it unset is a safe default — the overlay
+  step is a no-op when the secret is empty.
 
 ## 5. Once everything above is done
 

@@ -1,0 +1,26 @@
+# yamllint config. See https://yamllint.readthedocs.io/
+# Workflows use actionlint for deeper syntax checks; yamllint here is
+# style-only across the repo.
+extends: default
+
+rules:
+  line-length:
+    max: 200
+    level: warning
+  truthy:
+    # allow yes/no/on/off in GitHub Actions syntax
+    allowed-values: ['true', 'false', 'yes', 'no', 'on', 'off']
+    check-keys: false
+  comments:
+    min-spaces-from-content: 1
+  # PR #1 files (dependabot.yml, CITATION.cff) and most repo YAML omit the
+  # `---` start marker; disable the rule so strict mode doesn't retroactively
+  # fail on them. Re-enable per-file if we adopt the marker project-wide.
+  document-start: disable
+  # Preamble comments in config.example.yaml use a loose indent style;
+  # comments-indentation is a pure style rule — disable to avoid churn.
+  comments-indentation: disable
+
+ignore: |
+  .worktrees/
+  .github/workflows/

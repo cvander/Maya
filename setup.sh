@@ -76,7 +76,7 @@ SKILL_COUNT=0
 for d in "$MAYA_ROOT/skills"/*/; do
   [ -d "$d" ] || continue
   name="$(basename "$d")"
-  case "$name" in _*|__*) continue ;; esac
+  case "$name" in _*) continue ;; esac
   [ -f "$d/manifest.toml" ] || continue
   SKILL_COUNT=$((SKILL_COUNT + 1))
 done

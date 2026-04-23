@@ -1,0 +1,8 @@
+# URLs lychee should skip. See https://github.com/lycheeverse/lychee
+# Localhost and example domains never resolve in CI.
+^https?://localhost
+^https?://127\.0\.0\.1
+^https?://example\.(com|org|net)
+# Issue-template URLs in .github/ISSUE_TEMPLATE produce 404 until the
+# maintainer enables the corresponding template in repo settings.
+^https?://github\.com/cvander/Maya/issues/new\?template=

@@ -9,6 +9,7 @@ The menu is not static. It changes based on what we buy out, what's in season, s
 ## Cocktails
 
 ### Old Fashioned
+
 - 2 oz bourbon (Evan Williams BiB, house pour)
 - 1 demerara sugar cube
 - 2-3 dashes Angostura bitters
@@ -20,6 +21,7 @@ No cherry. No soda. Keep it honest.
 **Price:** $14
 
 ### Dry Martini
+
 - 2.5 oz gin (Ford's, house pour)
 - 0.5 oz dry vermouth (Dolin)
 - Lemon twist or olive
@@ -29,6 +31,7 @@ Stirred, not shaken. Cold glass.
 **Price:** $15
 
 ### Manhattan
+
 - 2 oz rye (Rittenhouse BiB)
 - 1 oz sweet vermouth (Carpano Antica)
 - 2 dashes Angostura bitters
@@ -39,6 +42,7 @@ Stirred, served up.
 **Price:** $15
 
 ### Margarita
+
 - 2 oz tequila (Espolon Blanco)
 - 1 oz fresh lime juice
 - 0.75 oz simple syrup
@@ -49,6 +53,7 @@ Fresh lime only. No sour mix, ever.
 **Price:** $14
 
 ### Dark & Stormy
+
 - 2 oz rum (Flor de Cana 4yr)
 - Fever-Tree ginger beer
 - Lime wedge

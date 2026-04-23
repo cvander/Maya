@@ -11,6 +11,7 @@ San Francisco neighborhood bars face a unique combination of expensive/scarce AB
 ## SF Bar Operations Landscape
 
 ### ABC Licensing (California)
+
 - **License types**: Type 42 (beer/wine on-premise), Type 47 (full liquor on-premise), Type 48 (bar, no food requirement)
 - **Cost**: Market price ~$110K for transferable licenses in SF; limited supply creates bidding wars
 - **Timeline**: 150-180 days for new applications (ABC + MVIP/CCU inspections)
@@ -19,6 +20,7 @@ San Francisco neighborhood bars face a unique combination of expensive/scarce AB
 - **SF-specific**: Limited license count makes them scarce assets; transfers are slow even for previously-licensed locations
 
 ### Inventory Management (Industry Standard)
+
 | Tool | Price | Key Features | Best For |
 |------|-------|-------------|----------|
 | Bar Patrol | $49-69/mo | Bluetooth scales, auto-reorders, POS export, recipe costing | Small independents |
@@ -29,17 +31,20 @@ San Francisco neighborhood bars face a unique combination of expensive/scarce AB
 | Square for Retail | POS-bundled | Barcode scanning, low-stock alerts, local tax | Already on Square |
 
 ### Reorder Workflows
+
 - Par levels set per item (min stock before reorder)
 - Apps calculate variance (expected vs actual usage)
 - Automated vendor order drafts from low-stock triggers
 - Demand forecasting tied to local events, tourist seasons, day-of-week patterns
 
 ### Compliance Deadlines (SF-Specific)
+
 - **SFDPH (Health Dept)**: Weekly pest logs, monthly cooler temperature records, FIFO rotation, sanitation logs
 - **ABC**: Annual renewal, unannounced compliance audits, hours enforcement (no sales after 2 AM)
 - **Labor**: SF minimum wage $18.67/hr (2026), 21+ requirement for liquor service
 
 ### Staffing
+
 - Minimum age 21 for serving liquor
 - SF's high cost of living makes retention difficult
 - Most small bars run lean (2-3 bartenders, owner-operator model)
@@ -71,6 +76,7 @@ San Francisco neighborhood bars face a unique combination of expensive/scarce AB
 **Maya is a good template for Phase 1 of a bar management system, not a replacement for dedicated bar inventory apps.**
 
 For a bar owner who is also a developer (or has one as a friend), Maya's approach has genuine advantages:
+
 - **$0/month** vs $49-69/month for Bar Patrol
 - **Full data ownership** -- your inventory data is in readable files, not locked in a SaaS
 - **Customizable** -- you can add columns, change thresholds, script whatever you want
@@ -78,6 +84,7 @@ For a bar owner who is also a developer (or has one as a friend), Maya's approac
 - **Git history** -- every inventory change is tracked, diffable, revertible
 
 But for a typical SF bar owner who just wants inventory done:
+
 - Bar Patrol or Backbar is the pragmatic choice
 - Mobile interface matters more than data ownership
 - $49/month is trivial vs the cost of one wasted keg
@@ -98,16 +105,19 @@ Based on how SF bars actually operate:
 ## Sources
 
 ### Web (Perplexity)
+
 - Bar Patrol, BevSpot, Wisk, Backbar, Partender, Square for Retail feature comparisons
 - CA ABC licensing requirements and process documentation
 - SFDPH health code requirements for food/beverage establishments
 
 ### X/Twitter
+
 - @clintolsen on SF liquor license scarcity (Jan 2025, 551 likes)
 - @DDaarriius on ABC audit enforcement (Apr 2026)
 - General bar inventory management discussions
 
 ### YouTube
+
 - [How To Get A California Liquor License](https://www.youtube.com/watch?v=OlHg7BIsSl0) - Permit Place
 - [ABC License Types Explained](https://www.youtube.com/watch?v=LzOB71rjbfw) - AAA Liquor License Consulting
 - [Top 4 Bar Inventory Apps 2026](https://www.youtube.com/watch?v=z1DeX1wTqy4) - Dave Allred/Bar Patrol

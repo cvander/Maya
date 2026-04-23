@@ -41,6 +41,7 @@ python -m skills.vendor_order --vendor "Southern Glazer's" --input-file /tmp/rev
 ```
 
 Parse the JSON result:
+
 - `status`: "ok" (no orders for vendor) or "warn" (order draft generated)
 - `data.order_text`: plain text order ready to copy-paste
 - `data.vendor`: matched vendor name

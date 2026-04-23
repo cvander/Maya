@@ -54,6 +54,7 @@ python -m skills.compliance_check --compliance-dir path/to/compliance --format j
 ```
 
 Parse the JSON result:
+
 - `status`: "ok" (no issues) or "warn" (findings present)
 - `findings`: array with codes CERT_EXPIRING, CERT_EXPIRED, LOG_OVERDUE, PERMIT_RENEWAL, INSPECTION_DUE
 - `data.certs_checked`: number of staff certs scanned
@@ -73,6 +74,7 @@ Parse the JSON result:
 ## Verification
 
 After running, confirm:
+
 - Exit code is 0 or 1 (not 2, 3, or 10)
 - stdout is valid JSON (when using --format json)
 - `data.certs_checked` >= 0 (files were actually read)

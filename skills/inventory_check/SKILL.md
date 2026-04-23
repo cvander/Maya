@@ -45,6 +45,7 @@ python -m skills.inventory_check --inventory-dir path/to/inventory --format json
 ```
 
 Parse the JSON result:
+
 - `status`: "ok" (nothing to reorder) or "warn" (items need attention)
 - `findings`: array of LOW_STOCK items with category, item name, qty, reorder_at
 - `data.items_scanned`: total items checked
@@ -63,6 +64,7 @@ Parse the JSON result:
 ## Verification
 
 After running, confirm:
+
 - Exit code is 0 or 1 (not 2, 3, or 10)
 - stdout is valid JSON (when using --format json)
 - `data.items_scanned` > 0 (files were actually read)

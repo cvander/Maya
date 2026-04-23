@@ -48,6 +48,7 @@ python -m skills.eighty_six --remove "Pliny the Elder" --format json
 ```
 
 Parse the JSON result:
+
 - `status`: "ok" (all clear or action completed) or "warn" (items on 86 list)
 - `findings`: array with CURRENTLY_86D, ITEM_86D, or ITEM_BACK codes
 - `data.items`: list of currently 86'd items (on --list)
@@ -66,6 +67,7 @@ Parse the JSON result:
 ## Verification
 
 After running, confirm:
+
 - Exit code is 0 or 1 (not 2, 3, or 10)
 - stdout is valid JSON (when using --format json)
 - For --add: item appears in subsequent --list

@@ -115,6 +115,7 @@ required_environment_variables: []  # must match manifest.toml env_required
 Skills log via `_lib.log.event(name, **fields)`. Events are appended as JSONL to `logs/skills/<skill>.jsonl`.
 
 Rules:
+
 - Event names are fixed dotted strings (e.g. `inventory_check.started`). No f-strings in names.
 - Fields are structured scalars only: counts, file names, exit codes, durations.
 - No free-text interpolation. No item names, brand names, or PII in log fields.
