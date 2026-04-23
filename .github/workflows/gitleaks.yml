@@ -1,0 +1,58 @@
+name: gitleaks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: gitleaks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gitleaks:
+    name: gitleaks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # pull-requests: write is granted only for same-repo PRs;
+      # fork PRs automatically degrade to read-only and gitleaks
+      # falls back to workflow annotations.
+      pull-requests: write
+    steps:
+      - uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde  # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
+        with:
+          fetch-depth: 0
+
+      # Private-overlay hook. If the GITLEAKS_PRIVATE_CONFIG secret is
+      # set, write it to a runner-local file and append its contents
+      # onto .gitleaks.toml; gitleaks merges [[rules]] tables across
+      # the single resulting config file. No-op when the secret is
+      # unset. The appended file never leaves the runner.
+      - name: Merge private gitleaks overlay (if provided)
+        env:
+          PRIVATE_CONFIG: ${{ secrets.GITLEAKS_PRIVATE_CONFIG }}
+        run: |
+          set -euo pipefail
+          if [ -n "${PRIVATE_CONFIG:-}" ]; then
+            printf '%s\n' "$PRIVATE_CONFIG" > .gitleaks-private.toml
+            # Append private rules; gitleaks deduplicates by rule id.
+            printf '\n# --- Private overlay (appended at CI time) ---\n' >> .gitleaks.toml
+            cat .gitleaks-private.toml >> .gitleaks.toml
+            echo "Merged private overlay ($(wc -l < .gitleaks-private.toml) lines)."
+          else
+            echo "No private overlay configured."
+          fi
+
+      - uses: gitleaks/gitleaks-action@83373cf2f8c4db6e24b41c1a9b086bb9619e9cd3  # v2.3.7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Free for personal accounts; license only needed under orgs.
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+          GITLEAKS_CONFIG: .gitleaks.toml
