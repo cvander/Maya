@@ -63,10 +63,11 @@ paths = [
   '''^tests/.*/fixtures/.*''',
   # Python unit tests colocated with modules (e.g. maya/onboard/test_*.py)
   # hold inline synthetic PII as test data. Skill fixtures cover the
-  # skills/ case; this pattern covers tests under maya/ and anywhere
-  # else the project follows the colocated-test convention.
-  '''(^|/)test_[^/]+\.py$''',
-  '''_test\.py$''',
+  # skills/ case; these patterns cover tests under recognized source
+  # subtrees only — a file named test_x.py at the repo root or in an
+  # unknown path is NOT allowlisted and must still pass scanning.
+  '''^(maya|skills|evals|tests)/.*/test_[^/]+\.py$''',
+  '''^(maya|skills|evals|tests)/.*_test\.py$''',
   # The vendors docs file uses 555-prefix fake phones as placeholders
   # by convention — real vendor data is never committed.
   '''^docs/vendors/.*''',
