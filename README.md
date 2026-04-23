@@ -38,7 +38,7 @@ We care about bringing this technology to traditional businesses. Not to moderni
 
 ## Architecture
 
-```
+```text
 Maya/
 ├── config/
 │   ├── openclaw/       # OpenClaw agent configuration

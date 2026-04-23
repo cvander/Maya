@@ -45,6 +45,7 @@ python -m skills.compliance_docs --compliance-dir path/to/compliance --format js
 ```
 
 Parse the JSON result:
+
 - `status`: "ok" (all docs present and current) or "warn" (findings present)
 - `findings`: array with codes DOC_MISSING, DOC_EMPTY, DOC_STALE
 - `data.docs_checked`: number of docs audited
@@ -64,6 +65,7 @@ Parse the JSON result:
 ## Verification
 
 After running, confirm:
+
 - Exit code is 0 or 1 (not 2, 3, or 10)
 - stdout is valid JSON (when using --format json)
 - `data.docs_checked` > 0 (directory was actually read)

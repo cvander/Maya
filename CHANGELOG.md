@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 ## [Unreleased]
 
 ### Added
+
 - Initial project structure: OpenClaw, Hermes, and Claude Code configurations
 - Skill catalog and templates (see [skills/README.md](skills/README.md))
 - Domain documentation: menu, inventory, permits, seating, calendar

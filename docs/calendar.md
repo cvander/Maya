@@ -45,6 +45,7 @@ Dates that affect the menu, staffing, or how the room runs. Not every holiday ma
 Add dates here when they earn a spot. Not every holiday needs a plan. If it doesn't change how the bar runs, it doesn't go on the calendar.
 
 Include:
+
 - The date (exact or approximate)
 - What it affects (menu, staffing, crowd, all of the above)
 - What to watch for

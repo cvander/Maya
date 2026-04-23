@@ -22,11 +22,13 @@ python -m skills.eighty_six --add "Pliny the Elder" --reason "Keg kicked"
 ## Available Skills
 
 ### Inventory
+
 | Skill | Status | Description |
 |-------|--------|-------------|
 | `inventory-check` | implemented | Scan current stock levels, flag low items |
 
 ### Vendors
+
 | Skill | Status | Description |
 |-------|--------|-------------|
 | `vendor-order-review` | implemented | Review upcoming order needs across all vendors |
@@ -34,6 +36,7 @@ python -m skills.eighty_six --add "Pliny the Elder" --reason "Keg kicked"
 | `vendor-contact` | implemented | Generate email body or phone script for a vendor |
 
 ### Scheduling
+
 | Skill | Status | Description |
 |-------|--------|-------------|
 | `schedule-view` | implemented | Show the current week's schedule |
@@ -41,6 +44,7 @@ python -m skills.eighty_six --add "Pliny the Elder" --reason "Keg kicked"
 | `schedule-notify` | implemented | Generate per-staff notification messages |
 
 ### Close-Out
+
 | Skill | Status | Description |
 |-------|--------|-------------|
 | `close-out` | implemented | End-of-night cash reconciliation + tips + waste |
@@ -48,17 +52,20 @@ python -m skills.eighty_six --add "Pliny the Elder" --reason "Keg kicked"
 | `cost-analysis` | implemented | Pour cost, COGS, and margin analysis per drink |
 
 ### 86 List
+
 | Skill | Status | Description |
 |-------|--------|-------------|
 | `eighty-six` | implemented | Manage items currently unavailable (add/remove/list) |
 
 ### Compliance
+
 | Skill | Status | Description |
 |-------|--------|-------------|
 | `compliance-check` | implemented | Review upcoming compliance deadlines and cert expirations |
 | `compliance-docs` | implemented | Check completeness of compliance documentation |
 
 ### Music
+
 | Skill | Status | Description |
 |-------|--------|-------------|
 | `music-book` | implemented | Generate booking outreach for musicians |
@@ -69,12 +76,14 @@ python -m skills.eighty_six --add "Pliny the Elder" --reason "Keg kicked"
 Each skill is a Python package under `skills/`. Follow the contract in [CONTRACT.md](CONTRACT.md).
 
 Use `skills/_skeleton/` as your starting template. It includes:
+
 - `__main__.py` with `extra_parser` pattern for custom CLI args
 - `main.py` with `run(ctx) -> Result` entry point
 - `test_main.py` with golden-output test pattern
 - `manifest.toml` and `SKILL.md` templates
 
 Keep skills:
+
 - **Single-purpose** - one skill, one job
 - **CLI-friendly** - works from a terminal, returns clean output
 - **Fail-safe** - the bar runs without them; failures log, not crash

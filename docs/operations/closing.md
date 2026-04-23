@@ -45,7 +45,7 @@ Last call is at 1:30 AM. Doors locked at 2:00 AM. This gets done before anyone l
 
 Write down anything the next shift needs to know:
 
-```
+```text
 Date: ____-__-__
 Bartender: ________________
 

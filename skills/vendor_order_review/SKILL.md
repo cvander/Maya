@@ -41,6 +41,7 @@ python -m skills.vendor_order_review --input-file /tmp/inventory.json --format j
 ```
 
 Parse the JSON result:
+
 - `status`: "ok" (no orders needed) or "warn" (orders to place)
 - `findings`: array of ORDER_NEEDED items with vendor, item, and quantity
 - `data.orders_by_vendor`: orders grouped by vendor name

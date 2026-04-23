@@ -16,6 +16,7 @@ Weekly visual inspection. SFDPH requires documentation of pest monitoring.
 ## Inspection Areas
 
 Check these every week:
+
 - [ ] Behind bar (under speed rail, behind bottles)
 - [ ] Storage room / back stock
 - [ ] Under sinks (bar and bathroom)

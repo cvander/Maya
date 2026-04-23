@@ -44,6 +44,7 @@ python -m skills.vendor_contact --vendor "Anchor Distributing" --method phone --
 ```
 
 Parse the JSON result:
+
 - `status`: "ok" (vendor not found) or "warn" (draft generated)
 - `data.message`: the email body or phone script text
 - `data.contact_info`: vendor contact details (rep, phone, email)
