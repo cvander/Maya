@@ -1,0 +1,71 @@
+name: lint-prose
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '**/*.yml'
+      - '**/*.yaml'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.md'
+      - '**/*.yml'
+      - '**/*.yaml'
+
+permissions: {}
+
+concurrency:
+  group: lint-prose-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  yamllint:
+    name: yamllint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde  # v2.9.1
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
+      - uses: karancode/yamllint-github-action@fdef6bc189425ecc84cc4543b2674566c0827053  # v2.1.1
+        with:
+          yamllint_file_or_dir: '.'
+          yamllint_config_filepath: '.yamllint.yaml'
+          yamllint_strict: true
+          yamllint_comment: false
+
+  markdownlint:
+    name: markdownlint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde  # v2.9.1
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
+      - uses: DavidAnson/markdownlint-cli2-action@b4c9feab76d8025d1e83c653fa3990936df0e6c8  # v16.0.0
+        with:
+          globs: '**/*.md'
+
+  lychee:
+    name: lychee (link-check)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde  # v2.9.1
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
+      - uses: lycheeverse/lychee-action@2b973e86fc7b1f6b36a93795fe2c9c6ae1118621  # v1.10.0
+        with:
+          args: >-
+            --no-progress
+            --exclude-path .worktrees
+            --exclude-path .git
+            '**/*.md'
+          fail: false
