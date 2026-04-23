@@ -1,0 +1,84 @@
+# Gitleaks rules for cvander/Maya.
+# Layers: upstream default rules + a small set of generic PII patterns.
+# A private overlay can be supplied at CI time via the
+# GITLEAKS_PRIVATE_CONFIG repository secret; see
+# .github/workflows/gitleaks.yml for the mechanism.
+#
+# Regex constraint: gitleaks uses Go's RE2-based stdlib engine, which
+# does NOT support lookarounds (?<!...) / (?!...) or backreferences.
+# Patterns below use word boundaries and explicit separators instead.
+
+title = "Maya gitleaks config"
+
+# Inherit the full set of upstream default rules (AWS/GCP/GitHub tokens,
+# generic-api-key, slack-webhook, etc.).
+[extend]
+useDefault = true
+
+# --- Generic PII rules -------------------------------------------------
+
+[[rules]]
+id = "email-address"
+description = "RFC-5322-lite email address (generic)"
+regex = '''(?i)\b[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}\b'''
+tags = ["pii", "email"]
+
+[[rules]]
+id = "us-phone-number"
+description = "US phone number (requires at least one separator to avoid matching pure digit runs)"
+regex = '''\b(?:\+?1[\s\-.])?\(?\d{3}\)?[\s\-.]\d{3}[\s\-.]\d{4}\b'''
+tags = ["pii", "phone", "us"]
+
+[[rules]]
+id = "mx-phone-number"
+description = "MX phone number (+52 followed by 10 digits with separators)"
+regex = '''\+52[\s\-.]?\d{2,3}[\s\-.]\d{3,4}[\s\-.]\d{4}\b'''
+tags = ["pii", "phone", "mx"]
+
+[[rules]]
+id = "credit-card-number"
+description = "Credit-card-shaped 13-19 digit run (Luhn not verified here)"
+regex = '''\b(?:\d[\s\-]?){12,18}\d\b'''
+tags = ["pii", "pci", "card"]
+
+# --- Allowlist: anti-false-positives -----------------------------------
+
+[allowlist]
+description = "Shared allowlist (repo fixtures and example placeholders)"
+paths = [
+  '''(?i).*\.example$''',
+  '''(?i).*\.example\.(yaml|yml|toml|json|env|txt|md)$''',
+  '''(?i)(^|/)examples?/.*''',
+  '''^docs/.*\.md$''',
+  '''^\.github/ISSUE_TEMPLATE/''',
+  '''^CITATION\.cff$''',
+  '''^CHANGELOG\.md$''',
+  # Skill and eval test fixtures hold intentionally synthetic PII:
+  # 555-01xx phone numbers and jake@*.example.com emails. These are
+  # contracts for the Python skills, not real data.
+  '''^skills/[^/]+/fixtures/.*''',
+  '''^skills/_skeleton/.*''',
+  '''^evals/.*/fixtures/.*''',
+  '''^evals/.*/scenarios/.*''',
+  '''^tests/.*/fixtures/.*''',
+  # Python unit tests colocated with modules (e.g. maya/onboard/test_*.py)
+  # hold inline synthetic PII as test data. Skill fixtures cover the
+  # skills/ case; this pattern covers tests under maya/ and anywhere
+  # else the project follows the colocated-test convention.
+  '''(^|/)test_[^/]+\.py$''',
+  '''_test\.py$''',
+  # The vendors docs file uses 555-prefix fake phones as placeholders
+  # by convention — real vendor data is never committed.
+  '''^docs/vendors/.*''',
+]
+regexes = [
+  # Obviously-not-real placeholders in example files. Match subdomains
+  # of example.com / example.org / example.net (e.g.
+  # coastalspirits.example.com) in addition to the bare domains.
+  '''(?i)\byour[-_.]?(email|phone|number)\b''',
+  '''(?i)\b(?:[a-z0-9-]+\.)*example\.(com|org|net)\b''',
+  # 555-01xx — North American "fictitious" prefix block. These are the
+  # only phone numbers that may legitimately appear in committed docs
+  # (test fixtures, README examples, etc.).
+  '''\b(?:\+?1[\s\-.])?\(?555\)?[\s\-.]?01\d{2}\b''',
+]
