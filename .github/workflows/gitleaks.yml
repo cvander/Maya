@@ -41,11 +41,16 @@ jobs:
         run: |
           set -euo pipefail
           if [ -n "${PRIVATE_CONFIG:-}" ]; then
-            printf '%s\n' "$PRIVATE_CONFIG" > .gitleaks-private.toml
-            # Append private rules; gitleaks deduplicates by rule id.
+            # Write overlay to $RUNNER_TEMP (auto-wiped, never in workspace
+            # so it cannot leak via artifact upload). trap cleans up on any
+            # exit path. gitleaks deduplicates rules by id, so duplicated
+            # ids in the overlay just refine the public config.
+            TMP_OVERLAY="$(mktemp)"
+            trap 'rm -f "$TMP_OVERLAY"' EXIT
+            printf '%s\n' "$PRIVATE_CONFIG" > "$TMP_OVERLAY"
             printf '\n# --- Private overlay (appended at CI time) ---\n' >> .gitleaks.toml
-            cat .gitleaks-private.toml >> .gitleaks.toml
-            echo "Merged private overlay ($(wc -l < .gitleaks-private.toml) lines)."
+            cat "$TMP_OVERLAY" >> .gitleaks.toml
+            echo "Merged private overlay ($(wc -l < "$TMP_OVERLAY") lines)."
           else
             echo "No private overlay configured."
           fi
